@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Lustria&family=Lato&display=swap');
+
+html {
+	font-size : 62.5%;
+	}
+
+body {
+	font-family         : 'Lato', sans-serif;
+	width               : 100vw;
+	min-height          : 100vh;
+	overflow-x          : hidden;
+	font-size           : 1.7rem;
+	background-size     : cover;
+	background-position : center center;
+	background-repeat   : no-repeat;
+	}
+
+img {
+	width  : 100%;
+	height : auto;
+	}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family : 'Lustria', serif;
+	}
+
+h1 {
+	font-size : 4rem;
+	}
+
+h2 {
+	font-size : 3rem;
+	}
+
+h3 {
+	font-size : 2.5rem;
+	}
+
+h4 {
+	font-size : 2.25rem;
+	}
+
+h5 {
+	font-size : 2rem;
+	}
+
+h6 {
+	font-size : 1.75rem;
+	}
+
+p {
+	line-height    : 2rem;
+	font-size      : 1.7rem;
+	letter-spacing : 0.1rem;
+	}
+
+a {
+	text-decoration : none;
+	}

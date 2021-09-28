@@ -1,0 +1,253 @@
+.form__help {
+	.help-text {
+		font-size : 1.4rem;
+		}
+	}
+
+.form__glass {
+	color                   : $text-light;
+	width                   : 30vw;
+	padding                 : 10rem;
+	background              : rgba($primary, 0.2);
+	backdrop-filter         : blur(1.5rem);
+	-webkit-backdrop-filter : blur(1.5rem);
+	border                  : 0.1rem solid rgba($primary, 0.4);
+	border-radius           : 1rem;
+	margin                  : 0 auto;
+	position                : relative;
+	text-align              : center;
+	
+	.form__glass--heading {
+		text-transform : uppercase;
+		margin         : 2rem auto 4rem;
+		}
+	
+	.form__glass--header-img {
+		display       : none;
+		position      : absolute;
+		width         : 25rem;
+		height        : 25rem;
+		border-radius : 50%;
+		top           : -5rem;
+		left          : 50%;
+		transform     : translate(-50%, -50%);
+		}
+	}
+
+.form__row {
+	display : block;
+	width   : 100%;
+	padding : 1rem;
+	margin  : 0 auto;
+	
+	.form__label {
+		display        : block;
+		width          : 80%;
+		margin         : 0 auto;
+		padding-bottom : 0.5rem;
+		text-align     : left;
+		}
+	
+	.form__input--text {
+		display       : block;
+		margin        : 0 auto;
+		width         : 100%;
+		background    : rgba($background-light, 0.2);
+		border        : 0.1rem solid rgba($background-light, 0.4);
+		outline       : none;
+		border-radius : 2rem;
+		padding       : 1.5rem;
+		line-height   : 2rem;
+		color         : $text-light;
+		font-size     : 1.7rem;
+		transition    : all $anim-speed ease-in-out;
+		
+		::placeholder {
+			color   : $text-light;
+			opacity : 0.5;
+			}
+		
+		&:focus {
+			background : rgba($background-light, 0.6);
+			color      : $text-dark;
+			border     : 0.1rem solid rgba($background-light, 0.8);
+			}
+			
+		}
+	
+	.form__input--check--with--label {
+		width           : 100%;
+		margin          : 0 auto;
+		display         : flex;
+		flex-direction  : row;
+		align-items     : center;
+		justify-content : space-evenly;
+		}
+	
+	.form__input--check {
+		display : none;
+		
+		&:checked ~ .form__input--check--mark {
+			opacity          : 1;
+			background-color : $primary;
+			}
+		
+		&:checked ~ .form__input--check--mark::after {
+			opacity   : 1;
+			transform : rotateZ(40deg) translate(-50%, -50%) scale(1);
+			}
+		
+		&--mark {
+			flex-shrink      : 0;
+			display          : block;
+			width            : 4rem;
+			border           : 0.1rem solid rgba($background-light, 0.4);
+			height           : 4rem;
+			background-color : rgba($background-light, 0.3);
+			cursor           : pointer;
+			border-radius    : 0.7rem;
+			position         : relative;
+			transition       : all $anim-speed ease-in-out;
+			opacity          : 0.8;
+			
+			&::after {
+				content       : '';
+				position      : absolute;
+				width         : 1.5rem;
+				height        : 3rem;
+				border        : none;
+				border-right  : 0.4rem solid $text-light;
+				border-bottom : 0.4rem solid $text-light;
+				top           : 42%;
+				left          : 20%;
+				transition    : all $anim-speed ease-in-out;
+				transform     : rotateZ(10deg) translate(-50%, -50%) scale(2);
+				opacity       : 0;
+				}
+			}
+		}
+	
+	.form__input--select {
+		width    : 100%;
+		position : relative;
+		
+		select {
+			appearance     : none;
+			outline        : none;
+			font-family    : inherit;
+			font-size      : inherit;
+			line-height    : inherit;
+			width          : 100%;
+			background     : transparent;
+			border         : none;
+			color          : inherit;
+			cursor         : inherit;
+			padding        : 1.5rem;
+			border-radius  : inherit;
+			pointer-events : none;
+			}
+		
+		.select {
+			position         : relative;
+			width            : 100%;
+			font-size        : 1.7rem;
+			line-height      : 2rem;
+			color            : rgba($text-light, 0.8);
+			background-color : rgba($background-light, 0.2);
+			background-image : linear-gradient(to bottom, rgba($background-light, 0.3), rgba(255, 255, 255, 0.3));
+			border           : 0.1rem solid rgba($background-light, 0.4);
+			border-radius    : 2rem;
+			padding          : 0;
+			cursor           : pointer;
+			transition       : all $anim-speed ease-in-out;
+			display          : flex;
+			
+			&::after {
+				position         : absolute;
+				top              : 50%;
+				right            : 0.3rem;
+				transform        : translate(-50%, -50%);
+				content          : '';
+				width            : 2rem;
+				height           : 1rem;
+				background-color : rgba(#fff, 0.8);
+				clip-path        : polygon(100% 0%, 0% 0%, 50% 100%);
+				}
+			
+			.select__options--list {
+				z-index          : 99999;
+				position         : absolute;
+				top              : 100%;
+				left             : 0;
+				width            : 100%;
+				background-color : rgba($background-light, 0.7);
+				border           : 0.1rem solid rgba($background-light, 1);
+				border-radius    : 2rem;
+				display          : none;
+				opacity          : 0;
+				transition       : all $anim-speed ease-in-out;
+				overflow         : hidden;
+				padding          : 0;
+				
+				&.expanded {
+					opacity : 1;
+					}
+				
+				.select__option {
+					color            : rgba($text-dark, 0.8);
+					background-image : linear-gradient(to bottom, rgba($background-light, 0.8), rgba(255, 255, 255, 0.9));
+					line-height      : 2rem;
+					padding          : 1.5rem;
+					transition       : all $anim-speed ease-in-out;
+					
+					&.select__option--selected {
+						color            : rgba($text-light, 0.8);
+						background-image : linear-gradient(to bottom, rgba($primary, 0.8), rgba($primary, 0.9));
+						}
+					
+					&:hover {
+						color            : rgba($text-light, 0.9);
+						background-image : linear-gradient(to bottom, rgba($background-dark, 0.8), rgba(0, 0, 0, 0.9));
+						}
+					}
+				}
+			}
+		
+		//svg {
+		//	position       : absolute;
+		//	right          : 1rem;
+		//	top            : 0.5rem;
+		//	fill           : rgba(255, 255, 255, 1);
+		//	width          : 4rem;
+		//	height         : 4rem;
+		//	pointer-events : none;
+		//	transition     : all $anim-speed ease-in-out;
+		//
+		//	&.down__arrow {
+		//		opacity : 1;
+		//		}
+		//
+		//	&.up__arrow {
+		//		opacity : 0;
+		//		}
+		//	}
+		//
+		//.select:focus ~ svg.down__arrow {
+		//	opacity : 0;
+		//	}
+		//
+		//.select:focus ~ svg.up__arrow {
+		//	opacity : 1;
+		//	}
+		}
+	}
+
+@media (min-width : 1024px) {
+	.form__glass {
+		margin-top : 20rem;
+		
+		.form__glass--header-img {
+			display : block;
+			}
+		}
+	}

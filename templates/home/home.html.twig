@@ -1,0 +1,33 @@
+{% extends "base/app.html.twig" %}
+
+{% block body %}
+	<div class="hero text__white" style="
+			background: url({{ asset('build/images/green_truck.jpg') }});
+			background-size     : cover;
+			background-position : center center;
+			background-repeat   : no-repeat;">
+		<div class="container">
+			<div class="card card__glass">
+				<div class="card__header">
+					<h1 class="center">
+						{% trans %}welcome.to.app.heading{% endtrans %}
+					</h1>
+				</div>
+				<div class="card__content">
+					<p class="card__text">
+						{% trans %}welcome.to.app.description{% endtrans %}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		
+		<div>
+			<div class="img__container">
+				<img src="{{ asset('build/images/green_truck.jpg') }}" alt="Truck with a forest and mountains as the background">
+				<img src="{{ asset('build/images/vehicles_on_road.jpg') }}" alt="Truck and car on the road together">
+			</div>
+		</div>
+	</div>
+{% endblock %}

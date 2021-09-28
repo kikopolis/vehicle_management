@@ -1,0 +1,82 @@
+{% extends "base/app.html.twig" %}
+
+{% block title %}{% trans %}register.new.account{% endtrans %}{% endblock %}
+
+{% block body %}
+	<div class="container">
+		{{ form_start(registerForm, {'attr': {'class': 'form__glass'}}) }}
+		<img class="form__glass--header-img" src="{{ asset('build/images/headers/glass-form-header.jpg') }}" alt="Glass form header image">
+		<h1 class="form__glass--heading">{% trans %}register.new.account{% endtrans %}</h1>
+		
+		<div class="form__row">
+			{{ form_label(registerForm.name, null, {'label_attr': {'class': 'form__label'}}) }}
+			{{ form_widget(registerForm.name, {'attr': {'class': 'form__input--text'}}) }}
+			<small class="form__help">{{ form_help(registerForm.name) }}</small>
+			<div class="form__error">
+				{{ form_errors(registerForm.name) }}
+			</div>
+		</div>
+		
+		<div class="form__row">
+			{{ form_label(registerForm.email, null, {'label_attr': {'class': 'form__label'}}) }}
+			{{ form_widget(registerForm.email, {'attr': {'class': 'form__input--text'}}) }}
+			<small class="form__help">{{ form_help(registerForm.email) }}</small>
+			<div class="form__error">
+				{{ form_errors(registerForm.email) }}
+			</div>
+		</div>
+		
+		<div class="form__row">
+			{{ form_label(registerForm.plainPassword, null, {'label_attr': {'class': 'form__label'}}) }}
+			{{ form_widget(registerForm.plainPassword, {'attr': {'class': 'form__input--text'}}) }}
+			<small class="form__help">{{ form_help(registerForm.plainPassword) }}</small>
+			<div class="form__error">
+				{{ form_errors(registerForm.plainPassword) }}
+			</div>
+		</div>
+		
+		<div class="form__row">
+			{{ form_label(registerForm.repeatPlainPassword, null, {'label_attr': {'class': 'form__label'}}) }}
+			{{ form_widget(registerForm.repeatPlainPassword, {'attr': {'class': 'form__input--text'}}) }}
+			<small class="form__help">{{ form_help(registerForm.repeatPlainPassword) }}</small>
+			<div class="form__error">
+				{{ form_errors(registerForm.repeatPlainPassword) }}
+			</div>
+		</div>
+		
+		<div class="form__row">
+			{{ form_label(registerForm.locale, null, {'label_attr': {'class': 'form__label'}}) }}
+			<div class="form__input--select">
+				<div class="select">
+					{{ form_widget(registerForm.locale) }}
+				</div>
+			</div>
+			<div class="form__error">
+				{{ form_errors(registerForm.locale) }}
+			</div>
+		</div>
+		
+		<div class="form__row">
+			<div class="form__input--check--with--label">
+				{{ form_widget(registerForm.agreeToTerms, {'attr': {'class': 'form__input--check'}}) }}
+				{{ form_label(registerForm.agreeToTerms, ' ', {'label_attr': {'class': 'form__input--check--mark'}}) }}
+				<span class="form__input--check--mark--text">{% trans %}forms.fields.checkbox.agree.to.terms.label{% endtrans %}</span>
+			</div>
+			<a class="plain__link" href="{{ path('terms_and_conditions', {'_locale': app.request.locale}) }}">
+				{% trans %}forms.fields.checkbox.agree.to.terms.help{% endtrans %}
+			</a>
+		</div>
+		
+		<div class="form__row">
+			{{ form_row(registerForm.register, {'attr': {'class': 'button morphism__button'}}) }}
+		</div>
+		
+		{{ form_widget(registerForm) }}
+		{{ form_end(registerForm) }}
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{{ encore_entry_script_tags('form-select') }}
+{% endblock %}

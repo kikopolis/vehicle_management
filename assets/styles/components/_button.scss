@@ -1,0 +1,45 @@
+.plain__link {
+	text-decoration : none;
+	color           : $primary;
+	transition      : all $anim-speed ease-in-out;
+	
+	&:hover {
+		color : rgba($primary, 0.3);
+		}
+	}
+
+.button {
+	border         : 0.1rem solid transparent;
+	outline        : none;
+	padding        : 1.5rem 5rem;
+	line-height    : 2rem;
+	font-size      : 1.7rem;
+	cursor         : pointer;
+	transition     : color $anim-speed ease-in-out, background-color $anim-speed ease-in-out;
+	text-transform : uppercase;
+	}
+
+.morphism__button {
+	border-radius : 2rem;
+	border        : 0.1rem solid rgba($background-light, 0.5);
+	background    : rgba($background-light, 0.3);
+	color         : rgba($text-light, 0.7);
+	
+	&:hover {
+		border     : 0.1rem solid rgba($background-light, 1);
+		background : rgba($background-light, 0.7);
+		color      : $text-light;
+		}
+	}
+
+.square__button {
+	border           : 0.1rem solid rgba($primary, 0.5);
+	background-color : rgba($primary, 0.4);
+	color            : rgba($text-light, 0.7);
+	
+	&:hover {
+		border           : 0.1rem solid rgba($primary, 1);
+		background-color : rgba($primary, 0.7);
+		color            : $text-light;
+		}
+	}

@@ -1,0 +1,42 @@
+welcome:
+    main.title: Tere Tulemast Masinate Majandamisse!
+    to.app:
+        heading: Tere Tulemast Masinate Majandamisse!
+        description: Kõik masinatega seonduv - hooldused, kindlustused jne jne ühe katuse all
+forms:
+    fields:
+        name: Nimi
+        email: Email
+        password: Salasõna
+        password.repeat: Korda salasõna
+        password.repeat.requirements: Mõlemad salasõnad peavad kattuma
+        password.requirements: Salasõna peab sisaldama vähemalt ühte väiketähte, suurtähte ja numbrit. Pikkus peab olema vähemalt 12 tähemärki
+        locale: Keel
+        checkbox:
+            remember.me: Mäleta mind
+            agree.to.terms:
+                label: Nõustun kasutajatingimustega
+                help: Loe tingimusi
+                agreed: Registreerumiseks on vajalik nõustuda kasutajatingimustega
+                required: Registreerumiseks on vajalik nõustuda kasutajatingimustega
+                not.null: Registreerumiseks on vajalik nõustuda kasutajatingimustega
+register:
+    success: Registreerimine edukalt lõpetatud!
+    new.account: Registreeri uus Konto
+    thank.you:
+        heading: Aitäh registreerimast!
+        text: Teie konto on salvestatud ja ootab kinnitamist. Palun vaadake oma emaili.
+terms:
+    conditions:
+        title: Kasutajatingimused
+
+Register: Registreeri
+Login: Logi Sisse
+Sign In: Logi Sisse
+Logout: Logi Välja
+Profile: Profiil
+Please: Palun
+
+Estonia: Eesti
+Estonian: Eesti
+English: Inglise

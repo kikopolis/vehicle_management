@@ -1,0 +1,31 @@
+.container {
+	margin : 0 auto;
+	width  : 100%;
+	}
+
+@media (min-width : 768px) {
+	.container {
+		width : 80%;
+		}
+	}
+
+@media (min-width : 1024px) {
+	.container {
+		width : 65%;
+		}
+	}
+
+.center {
+	align-items     : center;
+	justify-content : center;
+	text-align      : center;
+	}
+
+.text__white {
+	color : $text-light;
+	}
+
+.responsive__image {
+	width  : 100%;
+	height : auto;
+	}

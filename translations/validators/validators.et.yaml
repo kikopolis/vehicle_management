@@ -1,0 +1,23 @@
+user:
+    register:
+        name:
+            not.blank: Nimi ei tohi olla tühi
+            characters: Nimi tohib sisaldada vaid tähti, tühikut, alajoont ja sidekriipsu
+            length:
+                max: Nime pikkus ei tohi ületada {{ limit }} tähe
+                min: Nimi peab olema vähemalt {{ limit }} tähte pikk
+        email:
+            not.blank: Email ei tohi olla tühi
+            in.use: Email on juba kasutusel! Kas oled unustanud salasõna?
+            regex: Email ei ole sisestatud õigesti
+        password:
+            not.blank: Salasõna ei tohi olla tühi
+            min: Salasõna peab olema vähemalt {{ limit }} tähemärki pikk
+            max: Salasõna ei tohi olla pikem kui {{ limit }} tähemärki
+            regex: Salasõna peab sisaldama ühte suurt tähte, ühte väikest tähte ja ühte numbrit
+            repeat:
+                not.blank: Salasõna kordamine ei tohi olla tühi
+                mismatch: Salasõna ja salasõna kordamine ei klapi. Palun sisesta need uuesti
+    locale:
+        length:
+            max: Keel ei tohi olla üle {{ limit }} tähemärgi

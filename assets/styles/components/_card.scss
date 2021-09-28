@@ -1,0 +1,11 @@
+.card {
+	padding       : 2rem;
+	border-radius : 1.2rem;
+	border        : 0.1rem solid rgba(255, 255, 255, 0.125);
+	}
+
+.card__glass {
+	backdrop-filter         : blur(16px) saturate(180%);
+	-webkit-backdrop-filter : blur(16px) saturate(180%);
+	background-color        : rgba(17, 25, 40, 0.75);
+	}
