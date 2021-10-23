@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>{% block title %}{% trans %}welcome.main.title{% endtrans %}{% endblock %}</title>
-	{% block stylesheets %}
-		{{ encore_entry_link_tags('app') }}
-	{% endblock %}
-	
-	{% block javascripts %}
-		{{ encore_entry_script_tags('app') }}
+	{% block head %}
+		<meta charset="UTF-8">
+		<title>{% block title %}{% trans %}welcome.main.title{% endtrans %}{% endblock %}</title>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+		{% block javascripts_in_head %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
 	{% endblock %}
 </head>
 <body style="background-image: url({{ asset('build/images/backgrounds/form-bg.jpg') }});">
 	{% include "base/partials/_navigation.html.twig" %}
 	{% block body %}{% endblock %}
+	{% block javascripts %}
+		{{ encore_entry_script_tags('app') }}
+	{% endblock %}
 </body>
 </html>

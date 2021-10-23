@@ -5,21 +5,21 @@ declare(strict_types = 1);
 namespace App\Entity;
 
 use App\Entity\Concerns\HasAuthor;
-use App\Entity\Concerns\HasTimestamps;
-use App\Entity\Contracts\Authorable;
-use App\Entity\Contracts\TimeStampable;
 use App\Repository\TaskRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\Blameable;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * Task is oil change
  * @ORM\Entity(repositoryClass=TaskRepository::class)
  */
-final class Task implements Authorable, TimeStampable {
+final class Task {
+	use Blameable;
+	use TimestampableEntity;
 	use HasAuthor;
-	use HasTimestamps;
 	
 	/**
 	 * @ORM\Id

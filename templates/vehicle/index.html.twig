@@ -1,0 +1,14 @@
+{% extends "base/app.html.twig" %}
+
+{% block title %}{% trans %}vehicle.index.title{% endtrans %}{% endblock %}
+
+{% block body %}
+	<div class="container text__white">
+		<h1>{% trans %}vehicle.index.heading{% endtrans %}</h1>
+		<div class="vehicle__type--card--grid">
+			{% for type in types %}
+				{{ include('vehicle/parts/_small_type_card.html.twig') }}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

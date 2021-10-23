@@ -5,6 +5,7 @@
 {% block body %}
 	<div class="container">
 		{{ form_start(registerForm, {'attr': {'class': 'form__glass'}}) }}
+		{{ form_errors(registerForm) }}
 		<img class="form__glass--header-img" src="{{ asset('build/images/headers/glass-form-header.jpg') }}" alt="Glass form header image">
 		<h1 class="form__glass--heading">{% trans %}register.new.account{% endtrans %}</h1>
 		
@@ -65,6 +66,9 @@
 			<a class="plain__link" href="{{ path('terms_and_conditions', {'_locale': app.request.locale}) }}">
 				{% trans %}forms.fields.checkbox.agree.to.terms.help{% endtrans %}
 			</a>
+			<div class="form__error">
+				{{ form_errors(registerForm.agreeToTerms) }}
+			</div>
 		</div>
 		
 		<div class="form__row">

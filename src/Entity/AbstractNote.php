@@ -6,10 +6,10 @@ namespace App\Entity;
 
 use App\Entity\Concerns\CanPurify;
 use App\Entity\Concerns\HasAuthor;
-use App\Entity\Concerns\HasTimestamps;
-use App\Entity\Contracts\Authorable;
-use App\Entity\Contracts\TimeStampable;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\Blameable;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\MappedSuperclass()
@@ -19,9 +19,10 @@ use Doctrine\ORM\Mapping as ORM;
  *     "task_note" = "App\Entity\TaskNote",
  * })
  */
-abstract class AbstractNote implements Authorable, TimeStampable {
-	use HasTimestamps;
+abstract class AbstractNote {
 	use CanPurify;
+	use TimestampableEntity;
+	use Blameable;
 	use HasAuthor;
 	
 	/**

@@ -6,10 +6,12 @@ welcome:
 forms:
     fields:
         name: Nimi
+        name.characters: Nimi võib sisaldada tähti, ülakoma, alakriipsu, sidekriipsu, tühikut ja punkti
         email: Email
         password: Salasõna
         password.repeat: Korda salasõna
         password.repeat.requirements: Mõlemad salasõnad peavad kattuma
+        password.repeat.mismatch: Mõlemad salasõnad peavad kattuma
         password.requirements: Salasõna peab sisaldama vähemalt ühte väiketähte, suurtähte ja numbrit. Pikkus peab olema vähemalt 12 tähemärki
         locale: Keel
         checkbox:
@@ -23,12 +25,24 @@ forms:
 register:
     success: Registreerimine edukalt lõpetatud!
     new.account: Registreeri uus Konto
-    thank.you:
+    thank_you:
         heading: Aitäh registreerimast!
         text: Teie konto on salvestatud ja ootab kinnitamist. Palun vaadake oma emaili.
 terms:
     conditions:
-        title: Kasutajatingimused
+        title: Terminid ja Kasutajatingimused
+vehicle:
+    index:
+        title: Kõik Masinad
+        heading: Kõik Masinad
+    title:
+        generic: Kõik masinad
+        by_type: Kõik masinad kategooriast - "{type}"
+    list:
+        description: Kirjeldus
+        manufacturer_model: Tootja ja mudel
+        fuel: Kütuse tüüp
+        manufactured_at: Tootmiskuupäev
 
 Register: Registreeri
 Login: Logi Sisse
@@ -40,3 +54,14 @@ Please: Palun
 Estonia: Eesti
 Estonian: Eesti
 English: Inglise
+
+Motorbike: Mootorrattas
+Car: Auto
+ATV: ATV
+Van: Kaubik
+Box Truck: Veoauto
+Semi Truck: Haagisega Veoauto
+Trailer: Haagis
+Bus: Buss
+Tractor: Traktor
+Other: Muu

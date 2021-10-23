@@ -19,16 +19,16 @@ class HomeController extends AbstractController {
 	}
 	
 	/**
-	 * @Route("/{_locale}", name="home", methods={"GET"}, requirements={"_locale": "en|et"})
+	 * @Route("/{_locale}", name="home", methods={"GET"}, requirements={"_locale"= "en|et"})
 	 */
 	public function homeLocale(): Response {
 		return $this->render('home/home.html.twig');
 	}
 	
 	/**
-	 * @Route("/{_locale}/terms-and-conditions", name="terms_and_conditions", methods={"GET"}, requirements={"_locale": "en|et"})
+	 * @Route("/{_locale}/terms-and-conditions", name="terms_and_conditions", methods={"GET"}, requirements={"_locale"= "en|et"})
 	 */
 	public function terms(): Response {
-		return $this->render('home/terms-and-conditions.html.twig');
+		return $this->render('home/terms_and_conditions.html.twig');
 	}
 }

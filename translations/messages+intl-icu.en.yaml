@@ -1,0 +1,67 @@
+welcome:
+    main.title: Welcome to the Machine Management!
+    to.app:
+        heading: Welcome to the Machine Management!
+        description: All conserning machines - maintenance, insurance and so on under one roof
+forms:
+    fields:
+        name: Name
+        name.characters: Name can contain letters,upper comma , underscore, hyphen, space and dot
+        email: Email
+        password: Password
+        password.repeat: Repeat password
+        password.repeat.requirements: Both passwords must match
+        password.repeat.mismatch: Both passwords must match
+        password.requirements: Password must contain at least one small, one large letter and one number. Minimum length is 12 characters
+        locale: Language
+        checkbox:
+            remember.me: Remember me
+            agree.to.terms:
+                label: Agree to conditions of use
+                help: Read conditions of use
+                agreed: Registration requires agreement of terms and conditions
+                required: Registration requires agreement of terms and conditions
+                not.null: Registration requires agreement of terms and conditions
+register:
+    success: Registration Successful
+    new.account: Register A New Account
+    thank_you:
+        heading: Thank you for registering
+        text: Your account is created and is awaiting activation. Please check your email inbox
+terms:
+    conditions:
+        title: Terms and Conditions
+vehicle:
+    index:
+        title: List of All Vehicles
+        heading: List of All Vehicles
+    title:
+        generic: All machines
+        by_type: All machines of type - "{type}"
+    list:
+        description: Description
+        manufacturer_model: Make and model
+        fuel: Fuel type
+        manufactured_at: Manufacture date
+
+Register: Register
+Login: Log In
+Sign In: Sign In
+Logout: Logout
+Profile: Provile
+Please: Please
+
+Estonia: Estonia
+Estonian: Estonian
+English: English
+
+Motorbike: Motorbike
+Car: Car
+ATV: ATV
+Van: Van
+Box Truck: Box Truck
+Semi Truck: Semi Truck
+Trailer: Trailer
+Bus: Bus
+Tractor: Tractor
+Other: Other

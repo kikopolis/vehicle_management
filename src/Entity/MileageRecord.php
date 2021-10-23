@@ -5,17 +5,18 @@ declare(strict_types = 1);
 namespace App\Entity;
 
 use App\Entity\Concerns\HasAuthor;
-use App\Entity\Concerns\HasTimestamps;
-use App\Entity\Contracts\Authorable;
-use App\Entity\Contracts\TimeStampable;
 use App\Repository\MileageRecordRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\Blameable;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass=MileageRecordRepository::class)
  */
-final class MileageRecord implements TimeStampable, Authorable {
-	use HasTimestamps;
+final class MileageRecord {
+	use Blameable;
+	use TimestampableEntity;
 	use HasAuthor;
 	
 	/**

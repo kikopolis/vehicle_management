@@ -5,22 +5,24 @@ declare(strict_types = 1);
 namespace App\Entity;
 
 use App\Entity\Concerns\HasAuthor;
-use App\Entity\Concerns\HasTimestamps;
 use App\Entity\Contracts\Authorable;
-use App\Entity\Contracts\TimeStampable;
 use App\Repository\EventRepository;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * Event is inspection date
  * @ORM\Entity(repositoryClass=EventRepository::class)
  */
-final class Event implements Authorable, TimeStampable {
+final class Event {
+	use BlameableEntity;
+	use TimestampableEntity;
 	use HasAuthor;
-	use HasTimestamps;
 	
 	/**
 	 * @ORM\Id
@@ -28,6 +30,7 @@ final class Event implements Authorable, TimeStampable {
 	 * @ORM\Column(type="integer")
 	 */
 	private ?int $id;
+	
 	
 	/**
 	 * @ORM\Column(type="integer", nullable=true)

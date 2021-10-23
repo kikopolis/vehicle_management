@@ -1,0 +1,11 @@
+<a href="{{ path('vehicle_by_id', {'id': vehicle.id}) }}">
+	<div class="vehicle__list--card">
+		<div class="card__body">
+			<h3>{{ vehicle.registration }}</h3>
+			<p>{% trans %}vehicle.list.description{% endtrans %} - {{ vehicle.description|truncate }}</p>
+			<p>{% trans %}vehicle.list.manufacturer_model{% endtrans %} - {{ vehicle.make }} {{ vehicle.model }}</p>
+			<p>{% trans %}vehicle.list.fuel{% endtrans %} - {{ vehicle.fuelType }}</p>
+			<p>{% trans %}vehicle.list.manufactured_at{% endtrans %} - {{ vehicle.manufacturedAt|date('d.m.Y') }}</p>
+		</div>
+	</div>
+</a>

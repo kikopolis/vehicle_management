@@ -1,0 +1,9 @@
+<a href="{{ path('vehicle_list_by_type', {'slug': type.slug}) }}">
+	<div class="vehicle__type--card"
+	     style="background-image: url('{{ asset(type.coverImg.location) }}')">
+		<div class="card__body__overlay"></div>
+		<div class="card__body">
+			<h3>{{ type.name|trans }}</h3>
+		</div>
+	</div>
+</a>

@@ -5,22 +5,23 @@ declare(strict_types = 1);
 namespace App\Entity;
 
 use App\Entity\Concerns\HasAuthor;
-use App\Entity\Concerns\HasTimestamps;
-use App\Entity\Contracts\Authorable;
-use App\Entity\Contracts\TimeStampable;
 use App\Repository\ServiceRepository;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Blameable\Traits\Blameable;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * Service is regular car service
  * @ORM\Entity(repositoryClass=ServiceRepository::class)
  */
-final class Service implements Authorable, TimeStampable {
+final class Service {
+	use Blameable;
+	use TimestampableEntity;
 	use HasAuthor;
-	use HasTimestamps;
 	
 	/**
 	 * @ORM\Id
@@ -66,4 +67,5 @@ final class Service implements Authorable, TimeStampable {
 	public function getId(): ?int {
 		return $this->id;
 	}
+	
 }

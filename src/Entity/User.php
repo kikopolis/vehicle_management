@@ -4,10 +4,11 @@ declare(strict_types = 1);
 
 namespace App\Entity;
 
-use App\Entity\Concerns\HasTimestamps;
-use App\Entity\Contracts\TimeStampable;
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -20,8 +21,8 @@ use function array_unique;
  * @ORM\Table(name="`user`")
  * @UniqueEntity(fields="email", message="user.register.email.in.use", groups={"register"})
  */
-final class User implements UserInterface, PasswordAuthenticatedUserInterface, TimeStampable {
-	use HasTimestamps;
+final class User implements UserInterface, PasswordAuthenticatedUserInterface {
+	use TimestampableEntity;
 	
 	public const ROLE_USER  = 'ROLE_USER';
 	public const ROLE_ADMIN = 'ROLE_ADMIN';
@@ -40,7 +41,7 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface, T
 	 *     groups={"register"}
 	 *     )
 	 * @Assert\Regex(
-	 *     pattern="/^[a-zA-Z\ \_\-]+$/",
+	 *     pattern="/^[a-zA-Z\ \_\-\.\']+$/",
 	 *     message="user.register.name.characters",
 	 *     groups={"register"}
 	 * )
@@ -123,6 +124,15 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface, T
 	 * )
 	 */
 	private string $locale = 'en';
+	
+	/**
+	 * @ORM\ManyToMany(targetEntity="App\Entity\Vehicle", mappedBy="visibleTo")
+	 */
+	private Collection $visibleVehicles;
+	
+	public function __construct() {
+		$this->visibleVehicles = new ArrayCollection();
+	}
 	
 	public function getId(): ?int {
 		return $this->id;
@@ -231,6 +241,31 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface, T
 	
 	public function setLocale(string $locale): User {
 		$this->locale = $locale;
+		return $this;
+	}
+	
+	public function getVisibleVehicles(): ArrayCollection|Collection {
+		return $this->visibleVehicles;
+	}
+	
+	public function setVisibleVehicles(ArrayCollection|Collection $visibleVehicles): User {
+		$this->visibleVehicles = $visibleVehicles;
+		return $this;
+	}
+	
+	public function addVisibleVehicle(Vehicle $vehicle): User {
+		if (! $this->visibleVehicles->contains($vehicle)) {
+			$this->visibleVehicles->add($vehicle);
+			$vehicle->addVisibleTo($this);
+		}
+		return $this;
+	}
+	
+	public function removeVisibleVehicle(Vehicle $vehicle): User {
+		if ($this->visibleVehicles->contains($vehicle)) {
+			$this->visibleVehicles->removeElement($vehicle);
+			$vehicle->removeVisibleTo($this);
+		}
 		return $this;
 	}
 }

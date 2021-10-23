@@ -24,8 +24,8 @@ class FreshDbCommand extends Command {
 	protected function execute(InputInterface $input, OutputInterface $output): int {
 		$this->setHidden(true);
 		$app = $this->getApplication();
-		if ($this->parameterBag->get('kernel.environment') !== 'dev') {
-			$output->write('Cannot run command in production.');
+		if ($this->parameterBag->get('kernel.environment') !== 'dev' && $this->parameterBag->get('kernel.environment') !== 'test') {
+			$output->write('Command must be run in either "dev" or "test" environments.');
 			return 0;
 		}
 		$dropDbCmd            = $app->find('doctrine:database:drop');
