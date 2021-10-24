@@ -19,7 +19,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class VehicleController extends AbstractController {
 	/**
-	 * @Route("/", name="index", methods={"GET"})
+	 * @Route("", name="index", methods={"GET"})
 	 */
 	public function index(VehicleTypeRepository $vehicleTypeRepository): Response {
 		return $this->render('vehicle/index.html.twig', ['types' => $vehicleTypeRepository->findPublic()]);

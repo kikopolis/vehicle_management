@@ -43,6 +43,8 @@ vehicle:
         manufacturer_model: Tootja ja mudel
         fuel: Kütuse tüüp
         manufactured_at: Tootmiskuupäev
+    show:
+        title: tüüpi masin registreerimisnumbriga
 
 Register: Registreeri
 Login: Logi Sisse
@@ -55,7 +57,7 @@ Estonia: Eesti
 Estonian: Eesti
 English: Inglise
 
-Motorbike: Mootorrattas
+Motorbike: Mootorratas
 Car: Auto
 ATV: ATV
 Van: Kaubik

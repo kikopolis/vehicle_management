@@ -1,10 +1,12 @@
 {% extends 'base/app.html.twig' %}
 
-{% block title %}
-
-{% endblock %}
+{% block title %}"{{ vehicle.type.name|trans }}" {% trans %}vehicle.show.title{% endtrans %} "{{ vehicle.registration }}"{% endblock %}
 
 {% block body %}
-
+	{% if vehicle.images is defined and vehicle.images.count > 0 %}
+		{% for image in vehicle.images %}
+			{{ include('base/partials/_image_thumbnail.html.twig') }}
+		{% endfor %}
+	{% endif %}
+	{{ include('vehicle/parts/_info_card.html.twig') }}
 {% endblock %}
-

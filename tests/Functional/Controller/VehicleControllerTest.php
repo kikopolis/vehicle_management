@@ -15,7 +15,7 @@ class VehicleControllerTest extends WebTestCase {
 	 */
 	public function testIndex(string $locale, ?User $user): void {
 		$client = static::createClient();
-		if ($user) {
+		if ($user !== null) {
 			$client->loginUser($user);
 		}
 		$crawler = $client->request('GET', sprintf('/%s/vehicles', $locale));
@@ -39,10 +39,10 @@ class VehicleControllerTest extends WebTestCase {
 	 */
 	public function byTypeTest(string $locale, string $type, ?User $user): void {
 		$client = static::createClient();
-		if ($user) {
+		if ($user !== null) {
 			$client->loginUser($user);
 		}
-		$crawler = $client->request('GET', sprintf('/%s/vehicles/%s', $locale, $type));
+		$crawler = $client->request('GET', sprintf('/%s/vehicles/type/%s', $locale, $type));
 		static::assertResponseIsSuccessful();
 	}
 	
@@ -56,6 +56,32 @@ class VehicleControllerTest extends WebTestCase {
 		yield 'no user, estonian locale' => [
 			'locale' => 'et',
 			'type'   => 'car',
+			'user'   => null,
+		];
+	}
+	
+	/**
+	 * @dataProvider vehicleByIdProvider
+	 */
+	public function vehicleByIdTest(string $locale, int $id, ?User $user): void {
+		$client = static::createClient();
+		if ($user !== null) {
+			$client->loginUser($user);
+		}
+		$crawler = $client->request('GET', sprintf('/%s/vehicles/%d', $locale, $id));
+		static::assertResponseIsSuccessful();
+	}
+	
+	public function vehicleByIdProvider(): Generator {
+		yield 'no user, english locale' => [
+			'locale' => 'en',
+			'id'     => 1,
+			'user'   => null,
+		];
+		
+		yield 'no user, estonian locale' => [
+			'locale' => 'et',
+			'id'     => 1,
 			'user'   => null,
 		];
 	}

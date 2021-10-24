@@ -43,6 +43,8 @@ vehicle:
         manufacturer_model: Make and model
         fuel: Fuel type
         manufactured_at: Manufacture date
+    show:
+        title: type machine with registration number
 
 Register: Register
 Login: Log In

@@ -119,12 +119,18 @@ final class Vehicle {
 	 */
 	private Collection $visibleTo;
 	
+	/**
+	 * @ORM\ManyToMany(targetEntity="App\Entity\Image")
+	 */
+	private Collection $images;
+	
 	public function __construct() {
 		$this->mileageRecords = new ArrayCollection();
 		$this->events         = new ArrayCollection();
 		$this->services       = new ArrayCollection();
 		$this->tasks          = new ArrayCollection();
 		$this->visibleTo      = new ArrayCollection();
+		$this->images         = new ArrayCollection();
 	}
 	
 	public function getId(): ?int {
@@ -276,6 +282,29 @@ final class Vehicle {
 	public function removeVisibleTo(User $user): Vehicle {
 		if ($this->visibleTo->contains($user)) {
 			$this->visibleTo->removeElement($user);
+		}
+		return $this;
+	}
+	
+	public function getImages(): ArrayCollection|Collection {
+		return $this->images;
+	}
+	
+	public function setImages(ArrayCollection|Collection $images): Vehicle {
+		$this->images = $images;
+		return $this;
+	}
+	
+	public function addImage(Image $image): Vehicle {
+		if (! $this->images->contains($image)) {
+			$this->images->add($image);
+		}
+		return $this;
+	}
+	
+	public function removeImage(Image $image): Vehicle {
+		if ($this->images->contains($image)) {
+			$this->images->removeElement($image);
 		}
 		return $this;
 	}
